@@ -18,9 +18,6 @@
           npmRoot = ./core/http/react-ui;
         };
         npmConfigHook = pkgs.importNpmLock.npmConfigHook;
-        # Avoid EOVERRIDE when importNpmLock rewrites the same-version hono
-        # override to a file: tarball that conflicts with the direct dependency.
-        npmFlags = [ "--legacy-peer-deps" ];
         npmBuildScript = "build";
 
         installPhase = ''
@@ -36,7 +33,7 @@
 
  	src = ./.;
         proxyVendor = true;
-        vendorHash = "sha256-z3lxQS8mXFuJzvYamejwapwVEmLpeAoiO3ksUKb4I3Q=";
+        vendorHash = "sha256-QWcuXFbzqqFUIgXDejQngUsTKNO0eimvMskqLSjte+g=";
 
         nativeBuildInputs = with pkgs; [
           pkg-config cmake gcc protobuf go-protobuf protoc-gen-go protoc-gen-go-grpc

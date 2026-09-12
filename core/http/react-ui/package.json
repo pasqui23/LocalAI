@@ -19,7 +19,6 @@
     "coverage:report": "nyc report"
   },
   "overrides": {
-    "hono": "4.13.5",
     "ip-address": "10.3.1",
     "path-to-regexp": "^8.4.0"
   },
