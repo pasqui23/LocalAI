@@ -343,7 +343,7 @@ func InstallBackend(ctx context.Context, systemState *system.SystemState, modelL
 	// Check if it is a directory
 	if uri.LooksLikeDir() {
 		// It is a directory, we just copy it over into the staging folder
-		if err := cp.Copy(string(uri), stagingPath); err != nil {
+		if err := cp.Copy(string(uri), stagingPath, cp.Options{PreserveTimes: true, PreserveOwner: true, PreservePermissions: true}); err != nil {
 			return fmt.Errorf("failed copying: %w", err)
 		}
 	} else {

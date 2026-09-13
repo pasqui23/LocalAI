@@ -300,7 +300,7 @@ func UpgradeBackend(ctx context.Context, systemState *system.SystemState, modelL
 
 	uri := downloader.URI(galleryEntry.URI)
 	if uri.LooksLikeDir() {
-		if err := cp.Copy(string(uri), tmpPath); err != nil {
+		if err := cp.Copy(string(uri), tmpPath, cp.Options{PreserveTimes: true, PreserveOwner: true, PreservePermissions: true}); err != nil {
 			os.RemoveAll(tmpPath)
 			return fmt.Errorf("failed to copy backend from directory: %w", err)
 		}
